@@ -1,23 +1,36 @@
-const express = require('express');
-const axios = require('axios');
-
+const express = require("express");
+const cors = require("cors");
+const bodyParser = require("body-parser");
 const app = express();
-const port = 3001; // Escolha uma porta de sua preferência
-
-// Middleware para permitir o uso de JSON no corpo das requisições
-app.use(express.json());
-
-// Rota de exemplo para fazer uma requisição usando Axios
-app.get('/api/exemplo', async (req, res) => {
-  try {
-    const response = await axios.get('https://jsonplaceholder.typicode.com/posts/1');
-    res.json(response.data);
-  } catch (error) {
-    console.error(error);
-    res.status(500).json({ error: 'Erro na requisição' });
-  }
+const mysql = require("mysql");
+const db = mysql.createPool({
+  host: "localhost",
+  user: "root",
+  password: "0511",
+  database: "agiotagem",
 });
 
-app.listen(port, () => {
-  console.log(`Servidor rodando na porta ${port}`);
+app.use(cors());
+app.use(express.json());
+app.use(bodyParser.urlencoded({ extended: true }));
+
+app.get("/home", (req, res) => {
+  const id = req.query.id; // Obtém o valor do parâmetro de consulta 'id' da URL
+
+  const sqlSelect = "SELECT * FROM emprestimo WHERE usuarios_id = ?";
+  console.log(sqlSelect);
+
+  db.query(sqlSelect, [id], (err, result) => {
+    // Passa 'id' como um array
+    if (err) {
+      console.log(err);
+      return res.status(500).json(err);
+    }
+    console.log(result);
+    res.send(result);
+  });
+});
+
+app.listen(3001, () => {
+  console.log(`Servidor rodando na porta 3001`);
 });
