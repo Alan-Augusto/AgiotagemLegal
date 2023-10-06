@@ -1,2 +1,3 @@
 # AgiotagemLegal
-Uma forma simplificada de organizar suas contas com terceiros. Agora você sabe até quando vai pagar uma dívida.
+últimas atualizações (06/10/2023):
+No momento está sendo configurado o banco de dados e o back-end está sendo estruturado para a lógica de usuários
