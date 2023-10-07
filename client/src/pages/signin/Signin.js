@@ -1,7 +1,7 @@
 import { useEffect } from "react";
 import "./Signin.css";
 
-function Signin() {
+function Signin({handleLoginSuccess}) {
   useEffect(() => {
     document.documentElement.classList.add("full-height");
   }, []);
@@ -9,6 +9,9 @@ function Signin() {
   return (
     <div>
       <p>Signin</p>
+      <button
+        onClick={handleLoginSuccess}
+      >Login</button>
     </div>
   );
 }

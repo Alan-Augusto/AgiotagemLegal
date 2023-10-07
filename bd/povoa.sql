@@ -1,92 +1,69 @@
--- Inserir os usuários
-INSERT INTO `agiotagem`.`usuario` (`email`, `nome`, `senha`) VALUES
-('admin@example.com', 'Admin', '123'),
-('alice@example.com', 'Alice', 'password123'),
-('bob@example.com', 'Bob', 'password456'),
-('carol@example.com', 'Carol', 'password789'),
-('dave@example.com', 'Dave', 'password321');
+INSERT INTO `agiotagem`.`usuario` (`email`, `nome`, `senha`, `foto`) VALUES
+('usuario1@example.com', 'admin', '123', 'foto1.jpg'),
+('usuario2@example.com', 'Usuário 2', 'senha456', 'foto2.jpg'),
+('usuario3@example.com', 'Usuário 3', 'senha789', 'foto3.jpg'),
+('usuario4@example.com', 'Usuário 4', 'senhaabc', 'foto4.jpg'),
+('usuario5@example.com', 'Usuário 5', 'senhaxyz', 'foto5.jpg');
 
--- Inserir as categorias para cada usuário
+INSERT INTO `agiotagem`.`destinatario` (`nome`, `pix`, `credito`, `usuario_id`) VALUES
+('Destinatário 1', 'pix1@example.com', '123456789', 1),
+('Destinatário 2', 'pix2@example.com', '987654321', 1),
+('Destinatário 3', 'pix3@example.com', '555555555', 1),
+('Destinatário 4', 'pix4@example.com', '111111111', 2),
+('Destinatário 5', 'pix5@example.com', '999999999', 2),
+('Destinatário 6', 'pix6@example.com', '777777777', 2),
+('Destinatário 7', 'pix7@example.com', '222222222', 3),
+('Destinatário 8', 'pix8@example.com', '888888888', 3),
+('Destinatário 9', 'pix9@example.com', '333333333', 3),
+('Destinatário 10', 'pix10@example.com', '444444444', 4),
+('Destinatário 11', 'pix11@example.com', '666666666', 4),
+('Destinatário 12', 'pix12@example.com', '777777777', 4),
+('Destinatário 13', 'pix13@example.com', '555555555', 5),
+('Destinatário 14', 'pix14@example.com', '222222222', 5),
+('Destinatário 15', 'pix15@example.com', '999999999', 5);
+
 INSERT INTO `agiotagem`.`categoria` (`nome`, `descricao`, `icon_svg`, `cor`, `usuarios_id`) VALUES
-('Alimentação', 'Despesas com alimentação', 'icone_alimentacao.svg', '#FF5733', 1),
-('Transporte', 'Despesas com transporte', 'icone_transporte.svg', '#23D3FF', 1),
-('Lazer', 'Despesas com lazer', 'icone_lazer.svg', '#FFD100', 1),
-('Trabalho', 'Despesas relacionadas ao trabalho', 'icone_trabalho.svg', '#62FF42', 2),
-('Educação', 'Despesas com educação', 'icone_educacao.svg', '#FF23E6', 2),
-('Saúde', 'Despesas com saúde', 'icone_saude.svg', '#2CFF55', 2),
-('Compras', 'Despesas com compras', 'icone_compras.svg', '#FF6C23', 3),
-('Viagens', 'Despesas com viagens', 'icone_viagens.svg', '#FFFB23', 3),
-('Casa', 'Despesas com a casa', 'icone_casa.svg', '#007CFF', 3),
-('Eletrodomésticos', 'Despesas com eletrodomésticos', 'icone_eletrodomesticos.svg', '#FF0077', 4),
-('Seguros', 'Despesas com seguros', 'icone_seguros.svg', '#00FF99', 4),
-('Investimentos', 'Despesas com investimentos', 'icone_investimentos.svg', '#FFAA00', 4),
-('Família', 'Despesas relacionadas à família', 'icone_familia.svg', '#00FFEE', 5),
-('Animais de Estimação', 'Despesas com animais de estimação', 'icone_animais.svg', '#FF00DD', 5),
-('Caridade', 'Doações e caridade', 'icone_caridade.svg', '#00FF22', 5);
+('Categoria 1', 'Descrição da Categoria 1', 'icon1.svg', '#FF5733', 1),
+('Categoria 2', 'Descrição da Categoria 2', 'icon2.svg', '#3399FF', 1),
+('Categoria 3', 'Descrição da Categoria 3', 'icon3.svg', '#33FF99', 2),
+('Categoria 4', 'Descrição da Categoria 4', 'icon4.svg', '#FF9933', 2),
+('Categoria 5', 'Descrição da Categoria 5', 'icon5.svg', '#9933FF', 3),
+('Categoria 6', 'Descrição da Categoria 6', 'icon6.svg', '#33FF33', 3),
+('Categoria 7', 'Descrição da Categoria 7', 'icon7.svg', '#33FFFF', 4),
+('Categoria 8', 'Descrição da Categoria 8', 'icon8.svg', '#FFFF33', 4),
+('Categoria 9', 'Descrição da Categoria 9', 'icon9.svg', '#33CC33', 5),
+('Categoria 10', 'Descrição da Categoria 10', 'icon10.svg', '#CC3333', 5);
 
--- Inserir empréstimos para cada usuário
--- Usuário 1 (Admin)
-INSERT INTO `agiotagem`.`emprestimo` (`titulo`, `descricao`, `valor`, `numeroparcelas`, `valorparcela`, `parcelainicial`, `parcelafinal`, `ativo`, `usuarios_id`, `destinatario_id`, `categoria_id`) VALUES
-('Empréstimo 1', 'Descrição do empréstimo 1', 1000.00, 5, 200.00, '2023-10-01', '2024-02-01', 1, 1, NULL, 1),
-('Empréstimo 2', 'Descrição do empréstimo 2', 1500.00, 6, 250.00, '2023-09-15', '2024-02-15', 1, 1, NULL, 2),
-('Empréstimo 3', 'Descrição do empréstimo 3', 2000.00, 4, 500.00, '2023-09-20', '2023-12-20', 1, 1, NULL, 3),
-('Empréstimo 4', 'Descrição do empréstimo 4', 1200.00, 3, 400.00, '2023-09-10', '2023-12-10', 1, 1, NULL, 4);
+INSERT INTO `agiotagem`.`emprestimo` (`titulo`, `descricao`, `valor`, `numeroparcelas`, `valorparcela`, `parcelainicial`, `ativo`, `usuarios_id`, `destinatario_id`, `categoria_id`) VALUES
+('Empréstimo 1', 'Descrição do Empréstimo 1', 1000, 12, 83.33, '2023-10-01', 1, 1, 1, 1),
+('Empréstimo 2', 'Descrição do Empréstimo 2', 1500, 6, 250.00, '2023-09-15', 1, 1, 2, 2),
+('Empréstimo 3', 'Descrição do Empréstimo 3', 800, 4, 200.00, '2023-08-20', 1, 2, 3, 3),
+('Empréstimo 4', 'Descrição do Empréstimo 4', 1200, 10, 120.00, '2023-07-10', 1, 2, 4, 4),
+('Empréstimo 5', 'Descrição do Empréstimo 5', 500, 3, 166.67, '2023-06-05', 1, 3, 5, 5),
+('Empréstimo 6', 'Descrição do Empréstimo 6', 900, 9, 100.00, '2023-05-15', 1, 3, 6, 6),
+('Empréstimo 7', 'Descrição do Empréstimo 7', 700, 5, 140.00, '2023-04-30', 1, 4, 7, 7),
+('Empréstimo 8', 'Descrição do Empréstimo 8', 2000, 8, 250.00, '2023-03-25', 1, 4, 8, 8),
+('Empréstimo 9', 'Descrição do Empréstimo 9', 300, 6, 50.00, '2023-02-10', 1, 5, 9, 9),
+('Empréstimo 10', 'Descrição do Empréstimo 10', 600, 5, 120.00, '2023-01-05', 1, 5, 10, 10);
 
--- Usuário 2 (Alice)
-INSERT INTO `agiotagem`.`emprestimo` (`titulo`, `descricao`, `valor`, `numeroparcelas`, `valorparcela`, `parcelainicial`, `parcelafinal`, `ativo`, `usuarios_id`, `destinatario_id`, `categoria_id`) VALUES
-('Empréstimo 5', 'Descrição do empréstimo 5', 800.00, 4, 200.00, '2023-09-05', '2023-12-05', 1, 2, NULL, 5),
-('Empréstimo 6', 'Descrição do empréstimo 6', 600.00, 5, 120.00, '2023-09-01', '2024-01-01', 1, 2, NULL, 6),
-('Empréstimo 7', 'Descrição do empréstimo 7', 1000.00, 6, 166.67, '2023-09-15', '2024-02-15', 1, 2, NULL, 7),
-('Empréstimo 8', 'Descrição do empréstimo 8', 2500.00, 5, 500.00, '2023-09-10', '2024-01-10', 1, 2, NULL, 8);
-
--- Usuário 3 (Bob)
-INSERT INTO `agiotagem`.`emprestimo` (`titulo`, `descricao`, `valor`, `numeroparcelas`, `valorparcela`, `parcelainicial`, `parcelafinal`, `ativo`, `usuarios_id`, `destinatario_id`, `categoria_id`) VALUES
-('Empréstimo 9', 'Descrição do empréstimo 9', 500.00, 4, 125.00, '2023-09-05', '2023-12-05', 1, 3, NULL, 9),
-('Empréstimo 10', 'Descrição do empréstimo 10', 900.00, 5, 180.00, '2023-09-01', '2024-01-01', 1, 3, NULL, 10),
-('Empréstimo 11', 'Descrição do empréstimo 11', 1200.00, 6, 200.00, '2023-09-15', '2024-02-15', 1, 3, NULL, 11),
-('Empréstimo 12', 'Descrição do empréstimo 12', 750.00, 3, 250.00, '2023-09-10', '2023-12-10', 1, 3, NULL, 12);
-
--- Usuário 4 (Carol)
-INSERT INTO `agiotagem`.`emprestimo` (`titulo`, `descricao`, `valor`, `numeroparcelas`, `valorparcela`, `parcelainicial`, `parcelafinal`, `ativo`, `usuarios_id`, `destinatario_id`, `categoria_id`) VALUES
-('Empréstimo 13', 'Descrição do empréstimo 13', 1500.00, 4, 375.00, '2023-09-05', '2023-12-05', 1, 4, NULL, 13),
-('Empréstimo 14', 'Descrição do empréstimo 14', 3000.00, 5, 600.00, '2023-09-01', '2024-01-01', 1, 4, NULL, 14),
-('Empréstimo 15', 'Descrição do empréstimo 15', 800.00, 6, 133.33, '2023-09-15', '2024-02-15', 1, 4, NULL, 15),
-('Empréstimo 16', 'Descrição do empréstimo 16', 1200.00, 3, 400.00, '2023-09-10', '2023-12-10', 1, 4, NULL, 16);
-
--- Usuário 5 (Dave)
-INSERT INTO `agiotagem`.`emprestimo` (`titulo`, `descricao`, `valor`, `numeroparcelas`, `valorparcela`, `parcelainicial`, `parcelafinal`, `ativo`, `usuarios_id`, `destinatario_id`, `categoria_id`) VALUES
-('Empréstimo 17', 'Descrição do empréstimo 17', 1000.00, 4, 250.00, '2023-09-05', '2023-12-05', 1, 5, NULL, 17),
-('Empréstimo 18', 'Descrição do empréstimo 18', 750.00, 5, 150.00, '2023-09-01', '2024-01-01', 1, 5, NULL, 18),
-('Empréstimo 19', 'Descrição do empréstimo 19', 1200.00, 6, 200.00, '2023-09-15', '2024-02-15', 1, 5, NULL, 19),
-('Empréstimo 20', 'Descrição do empréstimo 20', 500.00, 3, 166.67, '2023-09-10', '2023-12-10', 1, 5, NULL, 20);
-
--- Inserir destinatários para cada usuário
--- Usuário 1 (Admin)
-INSERT INTO `agiotagem`.`destinatario` (`nome`, `pix`, `credito`, `usuario_id`) VALUES
-('Destinatário 1', 'pix_destinatario1@example.com', '123.45', 1),
-('Destinatário 2', 'pix_destinatario2@example.com', '456.78', 1),
-('Destinatário 3', 'pix_destinatario3@example.com', '789.01', 1);
-
--- Usuário 2 (Alice)
-INSERT INTO `agiotagem`.`destinatario` (`nome`, `pix`, `credito`, `usuario_id`) VALUES
-('Destinatário 4', 'pix_destinatario4@example.com', '234.56', 2),
-('Destinatário 5', 'pix_destinatario5@example.com', '567.89', 2),
-('Destinatário 6', 'pix_destinatario6@example.com', '901.23', 2);
-
--- Usuário 3 (Bob)
-INSERT INTO `agiotagem`.`destinatario` (`nome`, `pix`, `credito`, `usuario_id`) VALUES
-('Destinatário 7', 'pix_destinatario7@example.com', '345.67', 3),
-('Destinatário 8', 'pix_destinatario8@example.com', '678.90', 3),
-('Destinatário 9', 'pix_destinatario9@example.com', '123.45', 3);
-
--- Usuário 4 (Carol)
-INSERT INTO `agiotagem`.`destinatario` (`nome`, `pix`, `credito`, `usuario_id`) VALUES
-('Destinatário 10', 'pix_destinatario10@example.com', '456.78', 4),
-('Destinatário 11', 'pix_destinatario11@example.com', '789.01', 4),
-('Destinatário 12', 'pix_destinatario12@example.com', '234.56', 4);
-
--- Usuário 5 (Dave)
-INSERT INTO `agiotagem`.`destinatario` (`nome`, `pix`, `credito`, `usuario_id`) VALUES
-('Destinatário 13', 'pix_destinatario13@example.com', '567.89', 5),
-('Destinatário 14', 'pix_destinatario14@example.com', '901.23', 5),
-('Destinatário 15', 'pix_destinatario15@example.com', '345.67', 5);
+INSERT INTO `agiotagem`.`Pagamento` (`data`, `parcela`, `observacao`, `metodo`, `comprovante`, `usuario_id`, `emprestimo_id`) VALUES
+('2023-10-05', 1, 'Primeira parcela', 'Transferência', 'comprovante1.jpg', 1, 1),
+('2023-09-05', 2, 'Segunda parcela', 'Transferência', 'comprovante2.jpg', 1, 1),
+('2023-09-10', 1, 'Primeira parcela', 'Transferência', 'comprovante3.jpg', 1, 2),
+('2023-08-15', 2, 'Segunda parcela', 'Transferência', 'comprovante4.jpg', 1, 2),
+('2023-08-20', 1, 'Primeira parcela', 'Transferência', 'comprovante5.jpg', 2, 3),
+('2023-07-25', 2, 'Segunda parcela', 'Transferência', 'comprovante6.jpg', 2, 3),
+('2023-07-30', 1, 'Primeira parcela', 'Transferência', 'comprovante7.jpg', 2, 4),
+('2023-07-05', 2, 'Segunda parcela', 'Transferência', 'comprovante8.jpg', 2, 4),
+('2023-06-10', 1, 'Primeira parcela', 'Transferência', 'comprovante9.jpg', 3, 5),
+('2023-05-15', 2, 'Segunda parcela', 'Transferência', 'comprovante10.jpg', 3, 5),
+('2023-05-20', 1, 'Primeira parcela', 'Transferência', 'comprovante11.jpg', 3, 6),
+('2023-04-25', 2, 'Segunda parcela', 'Transferência', 'comprovante12.jpg', 3, 6),
+('2023-04-30', 1, 'Primeira parcela', 'Transferência', 'comprovante13.jpg', 4, 7),
+('2023-04-05', 2, 'Segunda parcela', 'Transferência', 'comprovante14.jpg', 4, 7),
+('2023-03-10', 1, 'Primeira parcela', 'Transferência', 'comprovante15.jpg', 4, 8),
+('2023-02-15', 2, 'Segunda parcela', 'Transferência', 'comprovante16.jpg', 4, 8),
+('2023-02-20', 1, 'Primeira parcela', 'Transferência', 'comprovante17.jpg', 5, 9),
+('2023-01-25', 2, 'Segunda parcela', 'Transferência', 'comprovante18.jpg', 5, 9),
+('2023-01-30', 1, 'Primeira parcela', 'Transferência', 'comprovante19.jpg', 5, 10),
+('2022-12-05', 2, 'Segunda parcela', 'Transferência', 'comprovante20.jpg', 5, 10);

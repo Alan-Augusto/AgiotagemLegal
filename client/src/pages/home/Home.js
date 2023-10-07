@@ -15,7 +15,6 @@ function Home() {
       setListaDividas(response.data);
     });
   }, []);
-  
 
   return (
     <div>
